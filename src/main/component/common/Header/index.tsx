@@ -6,12 +6,10 @@ const Root = styled.div`
   background-color: lightgreen;
 `;
 
-const Header: React.FC = () => {
-  return (
-    <Root>
-      <h3>Header</h3>
-    </Root>
-  );
-}
+const Header: React.FC = () => (
+  <Root>
+    <h3>Header</h3>
+  </Root>
+);
 
 export default Header;

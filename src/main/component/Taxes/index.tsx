@@ -12,17 +12,15 @@ const MainPanel = styled.div`
   background-color: gray;
 `;
 
-const Taxes: React.FC = () => {
-  return (
-    <Root>
-      <Sidebar />
+const Taxes: React.FC = () => (
+  <Root>
+    <Sidebar />
 
-      <MainPanel>
-        <Header />
-        <h3>Taxes page</h3>
-      </MainPanel>
-    </Root>
-  );
-}
+    <MainPanel>
+      <Header />
+      <h3>Taxes page</h3>
+    </MainPanel>
+  </Root>
+);
 
 export default Taxes;

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import {
   Switch,
   Route,
-  Redirect
-} from "react-router-dom";
+  Redirect,
+} from 'react-router-dom';
 
 import Dashboard from './main/component/Dashboard';
 import Income from './main/component/Income';
@@ -21,22 +21,28 @@ const Root = styled.div`
 const App: React.FC = () => (
   <Root>
     <Switch>
-      <Route path={Pages.DASHBOARD}
+      <Route
+        path={Pages.DASHBOARD}
         component={Dashboard}
       />
-      <Route path={Pages.INCOME}
+      <Route
+        path={Pages.INCOME}
         component={Income}
       />
-      <Route path={Pages.EXPENSES}
+      <Route
+        path={Pages.EXPENSES}
         component={Expenses}
       />
-      <Route path={Pages.TAXES}
+      <Route
+        path={Pages.TAXES}
         component={Taxes}
       />
-      <Route path={Pages.SETTINGS}
+      <Route
+        path={Pages.SETTINGS}
         component={Settings}
       />
-      <Redirect from="/**"
+      <Redirect
+        from="/**"
         to={Pages.DASHBOARD}
       />
     </Switch>

@@ -12,17 +12,15 @@ const MainPanel = styled.div`
   background-color: gray;
 `;
 
-const Income: React.FC = () => {
-  return (
-    <Root>
-      <Sidebar />
+const Income: React.FC = () => (
+  <Root>
+    <Sidebar />
 
-      <MainPanel>
-        <Header />
-        <h3>Income page</h3>
-      </MainPanel>
-    </Root>
-  );
-}
+    <MainPanel>
+      <Header />
+      <h3>Income page</h3>
+    </MainPanel>
+  </Root>
+);
 
 export default Income;

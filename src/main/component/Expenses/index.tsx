@@ -12,17 +12,15 @@ const MainPanel = styled.div`
   background-color: gray;
 `;
 
-const Expenses: React.FC = () => {
-  return (
-    <Root>
-      <Sidebar />
+const Expenses: React.FC = () => (
+  <Root>
+    <Sidebar />
 
-      <MainPanel>
-        <Header />
-        <h3>Expenses page</h3>
-      </MainPanel>
-    </Root>
-  );
-}
+    <MainPanel>
+      <Header />
+      <h3>Expenses page</h3>
+    </MainPanel>
+  </Root>
+);
 
 export default Expenses;

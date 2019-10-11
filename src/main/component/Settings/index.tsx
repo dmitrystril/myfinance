@@ -12,17 +12,15 @@ const MainPanel = styled.div`
   background-color: gray;
 `;
 
-const Settings: React.FC = () => {
-  return (
-    <Root>
-      <Sidebar />
+const Settings: React.FC = () => (
+  <Root>
+    <Sidebar />
 
-      <MainPanel>
-        <Header />
-        <h3>Settings page</h3>
-      </MainPanel>
-    </Root>
-  );
-}
+    <MainPanel>
+      <Header />
+      <h3>Settings page</h3>
+    </MainPanel>
+  </Root>
+);
 
 export default Settings;

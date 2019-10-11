@@ -12,17 +12,15 @@ const MainPanel = styled.div`
   background-color: gray;
 `;
 
-const Dashboard: React.FC = () => {
-  return (
-    <Root>
-      <Sidebar />
+const Dashboard: React.FC = () => (
+  <Root>
+    <Sidebar />
 
-      <MainPanel>
-        <Header />
-        <h3>Dashboard page</h3>
-      </MainPanel>
-    </Root>
-  );
-}
+    <MainPanel>
+      <Header />
+      <h3>Dashboard page</h3>
+    </MainPanel>
+  </Root>
+);
 
 export default Dashboard;

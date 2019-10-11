@@ -11,11 +11,11 @@ const Root = styled.div`
 
 const Sidebar: React.FC = () => (
   <Root>
-    <Link to={Pages.DASHBOARD}>Dashboard</Link><br/>
-    <Link to={Pages.INCOME}>Income</Link><br/>
-    <Link to={Pages.EXPENSES}>Expenses</Link><br/>
-    <Link to={Pages.TAXES}>Taxes</Link><br/>
-    <Link to={Pages.SETTINGS}>Settings</Link><br/>
+    <Link to={Pages.DASHBOARD}>Dashboard</Link>
+    <Link to={Pages.INCOME}>Income</Link>
+    <Link to={Pages.EXPENSES}>Expenses</Link>
+    <Link to={Pages.TAXES}>Taxes</Link>
+    <Link to={Pages.SETTINGS}>Settings</Link>
   </Root>
 );
 
