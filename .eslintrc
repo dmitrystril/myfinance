@@ -3,7 +3,8 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "curly": ["error", "all"],
-    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/prop-types": 0
   },
   "extends": [
     "airbnb",
