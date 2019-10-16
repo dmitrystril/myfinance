@@ -6,10 +6,12 @@ import Header from '../common/Header';
 
 const Root = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 const MainPanel = styled.div`
   background-color: gray;
+  width: 100%;
 `;
 
 const Income: React.FC = () => (

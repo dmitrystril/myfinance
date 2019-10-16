@@ -14,15 +14,15 @@ const MainPanel = styled.div`
   width: 100%;
 `;
 
-const Expenses: React.FC = () => (
+const Upload: React.FC = () => (
   <Root>
     <Sidebar />
 
     <MainPanel>
       <Header />
-      <h3>Expenses page</h3>
+      <h3>Upload Statement</h3>
     </MainPanel>
   </Root>
 );
 
-export default Expenses;
+export default Upload;

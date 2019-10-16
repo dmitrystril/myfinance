@@ -12,10 +12,12 @@ import Expenses from './main/component/Expenses';
 import Taxes from './main/component/Taxes';
 import Settings from './main/component/Settings';
 import Pages from './constant/Pages';
+import Upload from './main/component/Upload';
 
 const Root = styled.div`
   height: 100%;
   width: 100%;
+  display: flex;
 `;
 
 const App: React.FC = () => (
@@ -36,6 +38,10 @@ const App: React.FC = () => (
       <Route
         path={Pages.TAXES}
         component={Taxes}
+      />
+      <Route
+        path={Pages.UPLOAD}
+        component={Upload}
       />
       <Route
         path={Pages.SETTINGS}

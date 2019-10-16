@@ -3,6 +3,7 @@ const Pages = {
   INCOME: '/income',
   EXPENSES: '/expenses',
   TAXES: '/taxes',
+  UPLOAD: '/upload',
   SETTINGS: '/settings',
 };
 
