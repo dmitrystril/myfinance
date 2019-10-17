@@ -1,4 +1,5 @@
 const Pages = {
+  LOGIN: '/login',
   DASHBOARD: '/dashboard',
   INCOME: '/income',
   EXPENSES: '/expenses',

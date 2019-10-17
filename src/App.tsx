@@ -13,6 +13,7 @@ import Taxes from './main/component/Taxes';
 import Settings from './main/component/Settings';
 import Pages from './constant/Pages';
 import Upload from './main/component/Upload';
+import Login from './main/component/common/Login';
 
 const Root = styled.div`
   height: 100%;
@@ -23,6 +24,10 @@ const Root = styled.div`
 const App: React.FC = () => (
   <Root>
     <Switch>
+      <Route
+        path={Pages.LOGIN}
+        component={Login}
+      />
       <Route
         path={Pages.DASHBOARD}
         component={Dashboard}
