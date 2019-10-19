@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Sidebar from '../common/Sidebar';
@@ -14,15 +14,29 @@ const MainPanel = styled.div`
   width: 100%;
 `;
 
-const Dashboard: React.FC = () => (
-  <Root>
-    <Sidebar />
+const Dashboard: React.FC = () => {
+  const [ apiResponse, setApiResponse ] = useState();
 
-    <MainPanel>
-      <Header />
-      <h3>Dashboard page</h3>
-    </MainPanel>
-  </Root>
-);
+  const fetchApi = async () => {
+    const response = await fetch("/api/testAPI")
+    setApiResponse(await response.json());
+  };
+
+  useEffect( () => {
+    fetchApi().then(() => console.log(apiResponse))
+  }, [ apiResponse ]
+ );
+
+  return (
+    <Root>
+      <Sidebar />
+
+      <MainPanel>
+        <Header />
+        <h3>Dashboard page</h3>
+      </MainPanel>
+    </Root>
+  );
+};
 
 export default Dashboard;
