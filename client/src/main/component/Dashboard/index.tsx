@@ -23,7 +23,7 @@ const Dashboard: React.FC = () => {
   };
 
   useEffect( () => {
-    fetchApi().then(() => console.log(apiResponse))
+    fetchApi()
   }, [ apiResponse ]
  );
 
@@ -34,6 +34,7 @@ const Dashboard: React.FC = () => {
       <MainPanel>
         <Header />
         <h3>Dashboard page</h3>
+        <p>API response: {apiResponse}</p>
       </MainPanel>
     </Root>
   );
