@@ -10,5 +10,5 @@ This is my pet project I'm working on to improve my skills on the following tech
 - Typescript
 - MobX
 - styled-components
-- koa
+- Express
 - GraphQL (hopefully)

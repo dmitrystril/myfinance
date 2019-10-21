@@ -13,6 +13,8 @@ const Root = styled.div`
   align-items: center;
   background-color: white;
   padding-top: 80px;
+  box-shadow: 1px 0 2px 2px #EDEDED;
+  z-index: 1;
 `;
 
 const SidebarItemWrapper = styled.div`

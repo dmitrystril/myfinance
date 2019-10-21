@@ -13,7 +13,7 @@ import Taxes from './main/component/Taxes';
 import Settings from './main/component/Settings';
 import Pages from './constant/Pages';
 import Upload from './main/component/Upload';
-import Login from './main/component/common/Login';
+import Login from './main/component/Login';
 
 const Root = styled.div`
   height: 100%;
