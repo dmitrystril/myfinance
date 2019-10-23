@@ -1,6 +1,8 @@
 {
   "name": "myfinance",
   "version": "0.1.0",
+  "author": "Dmitry Stril",
+  "description": "personal finance audit",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
