@@ -1,0 +1,30 @@
+{
+  "name": "myfinance",
+  "version": "0.0.1",
+  "private": true,
+  "description": "personal finance audit",
+  "author": "Dmitry Stril",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitrystril/myfinance.git"
+  },
+  "keywords": [
+    "finance",
+    "audit",
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/dmitrystril/myfinance/issues"
+  },
+  "homepage": "https://github.com/dmitrystril/myfinance#readme",
+  "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

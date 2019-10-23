@@ -1,8 +1,6 @@
 {
-  "name": "myfinance",
-  "version": "0.1.0",
-  "author": "Dmitry Stril",
-  "description": "personal finance audit",
+  "name": "myfinance-client",
+  "version": "0.0.1",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
@@ -52,10 +50,5 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "typescript": "3.6.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
