@@ -20,7 +20,7 @@ const Upload: React.FC = () => (
 
     <MainPanel>
       <Header />
-      <h3>Upload Statement</h3>
+      <h3>Upload Statement page</h3>
     </MainPanel>
   </Root>
 );
