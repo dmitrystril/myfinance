@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import Sidebar from '../common/Sidebar';
 import Header from '../common/Header';
+import { getTestApiData } from '../../redux/action/TestAction';
+import { AppState } from '../../redux/store';
 
 const Root = styled.div`
   display: flex;
@@ -25,7 +28,12 @@ const Content = styled.div<{heightSubtrahend: number}>`
   border-top-right-radius: 10px;
 `;
 
-const Dashboard: React.FC = () => {
+interface DashboardProps {
+  testData: string,
+  getTestApiData: typeof getTestApiData,
+};
+
+const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
   const [headerHeight, setHeaderHeight] = useState(0);
 
   const headerRef: React.RefObject<HTMLDivElement> = useRef(null);
@@ -36,6 +44,15 @@ const Dashboard: React.FC = () => {
     }
   }, [headerHeight]);
 
+  const {
+    testData,
+    getTestApiData,
+  } = props;
+
+  useEffect(() => {
+    getTestApiData();
+  }, [getTestApiData]);
+
   return (
     <Root>
       <Sidebar />
@@ -44,11 +61,22 @@ const Dashboard: React.FC = () => {
         <Header ref={headerRef} />
 
         <Content heightSubtrahend={headerHeight}>
-          <p>{" tl dr".repeat(3000)}</p>
+          <p>{testData}<br />{" tl dr".repeat(3000)}</p>
         </Content>
       </MainPanel>
     </Root>
   );
 };
 
-export default Dashboard;
+const mapStateToProps = (state: AppState) => ({
+  testData: state.testData,
+});
+
+const mapDispatchToProps = {
+  getTestApiData,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Dashboard);
