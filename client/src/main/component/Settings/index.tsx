@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Sidebar from '../common/Sidebar';
+import Sidebar from '../common/navigation/Sidebar';
 import Header from '../common/Header';
 
 const Root = styled.div`

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import Sidebar from '../common/Sidebar';
+import Sidebar from '../common/navigation/Sidebar';
 import Header from '../common/Header';
 import { getTestApiData } from '../../redux/action/TestAction';
 import { AppState } from '../../redux/store';
