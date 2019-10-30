@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 import { getTestApiData } from '../../redux/action/TestAction';
@@ -7,7 +6,7 @@ import { AppState } from '../../redux/store';
 import PageContainer from '../common/PageContainer';
 
 interface DashboardProps {
-  testData: string,
+  testData: string | null,
   getTestApiData: typeof getTestApiData,
 };
 
