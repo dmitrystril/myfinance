@@ -14,7 +14,7 @@ const Root = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: white;
-  padding-top: 80px;
+  padding-top: 50px;
   box-shadow: 1px 0 2px 2px #EDEDED;
   z-index: 1;
 `;
@@ -24,7 +24,7 @@ const SidebarItemWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  margin-top: 80px;
+  margin-top: 50px;
 `;
 
 const TopItemWrapper = styled.div`
@@ -32,11 +32,11 @@ const TopItemWrapper = styled.div`
 `;
 
 const BottomItemWrapper = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 const Logo = styled(ReactSVG)`
-  width: 100px;
+  width: 140px;
 `;
 
 interface SidebarProps {

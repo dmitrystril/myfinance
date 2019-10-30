@@ -18,8 +18,9 @@ const Root = styled.div<{ selected: boolean }>`
   cursor: pointer;
   ${({ selected }) => !selected && css`
     &:hover {
+      box-shadow:  1px 0px 0px 0px #ADD8E6;
       ${Title} {
-        color: '#ADD8E6';
+        color: #ADD8E6;
       }
     }
   `};
