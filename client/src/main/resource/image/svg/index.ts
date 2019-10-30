@@ -1,4 +1,4 @@
-import sidebarLogo from './sidebarLogo.svg';
+import sidebarLogo from './sidebar-logo.svg';
 
 const SVG = {
   sidebarLogo,
