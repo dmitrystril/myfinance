@@ -1,24 +1,17 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 
 import { getTestApiData } from '../../redux/action/TestAction';
 import { AppState } from '../../redux/store';
 import PageContainer from '../common/PageContainer';
 
-interface DashboardProps {
-  testData: string | null,
-  getTestApiData: typeof getTestApiData,
-};
-
-const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
-  const {
-    testData,
-    getTestApiData,
-  } = props;
+const Dashboard: React.FC = () => {
+  const dispatch = useDispatch();
+  const testData = useSelector((state: AppState) => state.testData);
 
   useEffect(() => {
-    getTestApiData();
-  }, [getTestApiData]);
+    dispatch(getTestApiData());
+  }, [dispatch]);
 
   return (
     <PageContainer>
@@ -27,15 +20,4 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
   );
 };
 
-const mapStateToProps = (state: AppState) => ({
-  testData: state.testData,
-});
-
-const mapDispatchToProps = {
-  getTestApiData,
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Dashboard);
+export default Dashboard;
