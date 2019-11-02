@@ -1,23 +1,9 @@
-import { GET_TEST_API_DATA_TYPES } from '../action/constant/ApiActionConstants';
+import { combineReducers } from 'redux';
 
-export interface RootState {
-  testData: string | null;
-};
+import income from './income';
+import expenses from './expenses';
 
-const initialState: RootState = {
-  testData: null,
-};
-
-const rootReducer = (state = initialState, action: any): RootState => {
-  switch (action.type) {
-    case GET_TEST_API_DATA_TYPES.GET_TEST_API_DATA_SUCCESS:
-      return {
-        ...state,
-        testData: action.data,
-      };
-    default:
-      return state;
-  }
-};
-
-export default rootReducer;
+export default combineReducers({
+  income,
+  expenses,
+});

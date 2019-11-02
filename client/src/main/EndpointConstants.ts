@@ -1,1 +1,2 @@
-export const TEST_API = '/api/testAPI/';
+export const INCOME = '/api/income/';
+export const EXPENSES = '/api/expenses/';

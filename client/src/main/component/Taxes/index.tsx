@@ -4,7 +4,7 @@ import PageContainer from '../common/PageContainer';
 
 const Taxes: React.FC = () => (
   <PageContainer>
-    <p>{" Taxes page ".repeat(3000)}</p>
+    <p>Taxes page</p>
   </PageContainer>
 );
 
