@@ -1,0 +1,46 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "plugins": ["@typescript-eslint", "react-hooks", "jest", "prettier"],
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+
+  ],
+  "rules": {
+    "curly": ["error", "all"],
+    "no-console": 1,
+    "jsx-a11y/label-has-associated-control": 0,
+    "import/named": "off",
+    "import/export": "off",
+    "import/prefer-default-export": "off",
+    "no-unused-expressions": ["warn", {
+      "allowShortCircuit": true,
+      "allowTernary": true
+    }],
+    "@typescript-eslint/prefer-interface": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/jsx-filename-extension": ["warn", {
+      "extensions": [".js", ".jsx", ".ts", ".tsx"]
+    }],
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "prettier/prettier": [
+      "error", {
+        "singleQuote": true,
+        "semi": false
+      }
+    ]
+  }
+}
