@@ -22,15 +22,18 @@ export default () => (next: any) => (action: any) => {
 
   return callApi(endpoint, config)
     .then((response) => {
-      const data = response.data;
+      const payload = {
+        data: response.data,
+      };
+
       next({
-        data,
+        payload,
         headers: response.headers,
         config,
         type: successType,
         ...params,
       });
-      return data;
+      return payload;
     }).catch((error) => {
       next({
         type: errorType,

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getExpensesData } from '../../redux/action/expenses/ExpensesActions';
+import { AppState } from '../../redux/rootReducer';
+import { getExpensesData } from '../../redux/feature/expenses/expensesSlice';
 import PageContainer from '../common/PageContainer';
-import { AppState } from '../../redux/store';
 
 const Expenses: React.FC = () => {
   const dispatch = useDispatch();

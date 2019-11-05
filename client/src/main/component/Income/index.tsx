@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getIncomeData } from '../../redux/action/income/IncomeActions';
+import { AppState } from '../../redux/rootReducer';
+import { getIncomeData } from '../../redux/feature/income/incomeSlice';
 import PageContainer from '../common/PageContainer';
-import { AppState } from '../../redux/store';
 
 const Income: React.FC = () => {
   const dispatch = useDispatch();

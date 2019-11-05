@@ -19,7 +19,7 @@
     "react-scripts": "3.2.0",
     "react-svg": "^10.0.22",
     "redux": "^4.0.4",
-    "redux-devtools-extension": "^2.13.8",
+    "redux-starter-kit": "^1.0.1",
     "styled-components": "^4.4.0"
   },
   "scripts": {
