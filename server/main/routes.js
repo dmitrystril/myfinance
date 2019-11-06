@@ -1,12 +1,17 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var router = express.Router();
 
 router.get('/api/income', (req, res) => {
-	res.json('API is working OK; No data for Income yet.')
+	res.json('API is working OK; No data for Income yet.');
 })
 
 router.get('/api/expenses', (req, res) => {
-	res.json('API is working OK; No data for Expenses yet.')
+	res.json('API is working OK; No data for Expenses yet.');
 })
 
-module.exports = router
+router.post('/api/upload', (req, res) => {
+	console.log('FILE: ' + req);
+	res.sendStatus(200);
+});
+
+module.exports = router;

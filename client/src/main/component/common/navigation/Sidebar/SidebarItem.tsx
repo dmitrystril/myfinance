@@ -14,6 +14,7 @@ const selectedItemCss = css`
 const Root = styled.div<{ selected: boolean }>`
   padding: 10px 20px;
   margin-bottom: 5px;
+  border-radius: 3px;
   background-color: ${({selected}) => (selected ? '#ADD8E6' : '#FFFFFF')};
   cursor: pointer;
   ${({ selected }) => !selected && css`

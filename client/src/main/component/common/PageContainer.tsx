@@ -16,7 +16,7 @@ const MainPanel = styled.div`
 `;
 
 const Content = styled.div`
-  margin: 30px 20px 0 30px;
+  margin: 20px 20px 0 20px;
   padding: 20px 20px 0 20px;
   background-color: white;
   height: calc(100% - 75px);

@@ -7,7 +7,12 @@ const configureAppStore = (preloadedState = {}) => {
   const store = configureStore({
     reducer: rootReducer,
     preloadedState,
-    middleware: [api, ...getDefaultMiddleware()],
+    middleware: [
+      api,
+      ...getDefaultMiddleware({
+        serializableCheck: false, // to allow non-serializable values in actions
+      }),
+    ],
   })
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {

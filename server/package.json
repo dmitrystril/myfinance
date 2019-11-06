@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "devstart": "SET DEBUG=server:* & node ./bin/www"
+    "devstart": "SET DEBUG=server:* & nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -14,6 +14,9 @@
     "helmet": "^3.21.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.4",
+    "uninstall": "0.0.0"
   }
 }
