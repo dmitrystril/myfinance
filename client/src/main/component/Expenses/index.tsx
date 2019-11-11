@@ -14,8 +14,8 @@ const Expenses: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <PageContainer>
-      <p>{testData}<br />{" Expenses page ".repeat(3000)}</p>
+    <PageContainer header="Expenses">
+      <p>{testData}</p>
     </PageContainer>
   );
 };

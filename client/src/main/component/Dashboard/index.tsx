@@ -3,7 +3,7 @@ import React from 'react';
 import PageContainer from '../common/PageContainer';
 
 const Dashboard: React.FC = () => (
-  <PageContainer>
+  <PageContainer header="Dashboard">
     <p>Dashboard page</p>
   </PageContainer>
 );

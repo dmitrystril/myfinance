@@ -14,8 +14,8 @@ const Income: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <PageContainer>
-      <p>{testData}<br />{" Income page ".repeat(3000)}</p>
+    <PageContainer header="Income">
+      <p>{testData}</p>
     </PageContainer>
   );
 };

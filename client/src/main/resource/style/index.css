@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 *,
 *:before,
 *:after {
@@ -57,8 +59,43 @@ table {
 body {
   margin: 0;
   padding: 0;
-  font-family: "SF Pro Display", sans-serif;
+  font-family: "Fira Code VF";
   line-height: 1;
   height: 100%;
   background-color: #F8F8F8;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../font/woff2/FiraCode-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../font/woff2/FiraCode-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../font/woff2/FiraCode-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('../font/woff2/FiraCode-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Code VF';
+  src: url('../font/woff2/FiraCode-VF.woff2') format('woff2-variations');
+  font-weight: 300 700;
+  font-style: normal;
 }

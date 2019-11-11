@@ -19,13 +19,14 @@ const Content = styled.div`
   margin: 20px 20px 0 20px;
   padding: 20px 20px 0 20px;
   background-color: white;
-  height: calc(100% - 75px);
+  height: calc(100% - 63px);
   overflow-y: auto;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 `;
 
 interface PageContainerProps {
+  header: string;
   children?: any;
 };
 
@@ -34,7 +35,7 @@ const PageContainer: React.FC<PageContainerProps> = (props: PageContainerProps) 
     <Sidebar />
 
     <MainPanel>
-      <Header />
+      <Header currentPage={props.header} />
 
       <Content>
         {props.children}
