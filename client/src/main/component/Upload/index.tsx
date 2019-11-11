@@ -1,55 +1,54 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ReactSVG from 'react-svg';
+import Button from 'antd/es/button';
+import { Upload as FileInput, Icon, message } from 'antd';
 
 import PageContainer from '../common/PageContainer';
-import { uploadFile } from '../../redux/feature/upload/uploadSlice';
 import SVG from '../../resource/image/svg';
+import { uploadFile, clearUpdate } from '../../redux/feature/upload/uploadSlice';
+import { AppState } from '../../redux/rootReducer';
 
-const FileInput = styled.input`
-  outline: 2px dashed #ADD8E6;
-  margin: 20px 0;
-  padding: 85px 0 85px 40%;
-  text-align: center;
-  width: 100%;
+const FileInputWrapper = styled.div`
+  height: 300px;
+  margin: 10px 0 15px 0;
 `;
 
 const Caption = styled.p`
   margin-bottom: 40px;
 `;
 
-const SupportedBanks = styled.div`
-
-`;
+const SupportedBanks = styled.div``;
 
 const BankLogo = styled(ReactSVG)`
+  margin-top: 5px;
   svg {
     width: 200px;
   }
-  margin-top: 5px;
 `;
 
-const checkMimeType = (file: File) => {
-  const allowedType = 'text/csv';
+const isCorrectMimeType = (file: File) => {
+  const allowedTypes = ['text/csv', 'application/vnd.ms-excel'];
 
-  return file.type === allowedType;
-}
+  return allowedTypes.includes(file.type);
+};
 
 const Upload: React.FC = () => {
   const dispatch = useDispatch();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-  const handleSelectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const fileList: FileList | null = event.target.files;
+  const [isLoading, isUploaded] = useSelector(({upload}: AppState) => (
+    [upload.isLoading, upload.isUploaded]
+  ));
 
-    if (fileList && fileList.length) {
-      const file = fileList[0];
-      if (checkMimeType(file)) {
-        setSelectedFile(fileList[0]);
-      }
+  useEffect(() => {
+    if (isUploaded) {
+      message.success('Statement uploaded successfully');
+      setSelectedFile(null);
+      dispatch(clearUpdate());
     }
-  }
+  }, [dispatch, isUploaded]);
 
   const handleUploadFile = () => {
     if (selectedFile) {
@@ -57,27 +56,46 @@ const Upload: React.FC = () => {
     }
   }
 
+  const customRequest = ({ file }: { file: File}) => {
+    if (!isCorrectMimeType(file)) {
+      message.error('Invalid file type');
+      return;
+    }
+    setSelectedFile(file);
+  }
+
   return (
-    <PageContainer>
+    <PageContainer header="Upload">
       <Caption>Pick up your Bank Statement CSV-file.</Caption>
 
       <SupportedBanks>Currently supported banks:
         <BankLogo src={SVG.monobank} />
       </SupportedBanks>
 
-      <div>
-        <FileInput
-          type="file"
-          onChange={handleSelectFile}
-        />
-      </div>
+      <FileInputWrapper>
+        <FileInput.Dragger
+          name="file"
+          accept=".csv, text/csv"
+          customRequest={(options) => customRequest(options)}
+          showUploadList={false}
+        >
+          <p className="ant-upload-drag-icon">
+            <Icon type="inbox" />
+          </p>
+          <p className="ant-upload-text">
+            {selectedFile ? selectedFile.name : 'Click or drag file to this area to upload'}
+          </p>
+        </FileInput.Dragger>
+      </FileInputWrapper>
 
-      <button
-        type="button"
+      <Button
+        type="primary"
         onClick={handleUploadFile}
+        loading={isLoading}
+        disabled={selectedFile === null || isUploaded}
       >
-        Upload
-      </button>
+        {isLoading ? 'Uploading' : 'Upload statement'}
+      </Button>
     </PageContainer>
   );
 };

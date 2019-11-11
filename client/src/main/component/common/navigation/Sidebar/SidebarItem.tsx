@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Title = styled.div`
-  letter-spacing: 0.05em;
+
 `;
 
 const selectedItemCss = css`
@@ -13,15 +13,17 @@ const selectedItemCss = css`
 
 const Root = styled.div<{ selected: boolean }>`
   padding: 10px 20px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   border-radius: 3px;
-  background-color: ${({selected}) => (selected ? '#ADD8E6' : '#FFFFFF')};
+  user-select: none;
+  background-color: ${({selected}) => (selected ? '#40a9ff' : '#FFFFFF')};
+  box-shadow: 1px 1px 1px lightgray;
   cursor: pointer;
   ${({ selected }) => !selected && css`
     &:hover {
-      box-shadow:  1px 0px 0px 0px #ADD8E6;
+      box-shadow:  1px 0px 0px 0px #40a9ff;
       ${Title} {
-        color: #ADD8E6;
+        color: #40a9ff;
       }
     }
   `};
