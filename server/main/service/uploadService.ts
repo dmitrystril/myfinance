@@ -1,17 +1,17 @@
-var xlsx = require('node-xlsx').default;
-var moment = require('moment');
+import xlsx from 'node-xlsx';
+import moment from 'moment';
 
-var transactionDao = require('../dao/transactionDao.ts');
+import transactionDao from '../dao/transactionDao';
 
-const service = {
-  uploadStatementFile: function(file) {
+const uploadService = {
+  uploadStatementFile: function(file: any) {
     const parsedTransactionRows = this.parseFile(file);
     const transactionVOList = this.prepareTransactionVOList(parsedTransactionRows);
 
     transactionDao.saveAll(transactionVOList);
   },
 
-  parseFile: function(file) {
+  parseFile: function(file: any) {
     const workSheets = xlsx.parse(file.buffer);
 	  const transactions = workSheets[0].data;
     transactions.shift(); // remove header row
@@ -19,8 +19,8 @@ const service = {
     return transactions;
   },
 
-  prepareTransactionVOList: function(transactionRows) {
-    return transactionRows.map(item => (
+  prepareTransactionVOList: function(transactionRows: any) {
+    return transactionRows.map((item: any) => (
       {
         transactionDate: moment.utc(item[0], 'dd.MM.yyyy HH:mm:ss').toDate(),
         description: item[1],
@@ -33,4 +33,4 @@ const service = {
   }
 };
 
-module.exports = service;
+export default uploadService;

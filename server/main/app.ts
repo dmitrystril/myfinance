@@ -1,15 +1,15 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import 'reflect-metadata';
 
-var indexRouter = require('./router/indexRouter.ts');
-var expensesRouter = require('./router/expensesRouter.ts');
-var incomeRouter = require('./router/incomeRouter.ts');
-var uploadRouter = require('./router/uploadRouter.ts');
-var userRouter = require('./router/userRouter.ts');
+import indexRouter from './router/indexRouter';
+import expensesRouter from './router/expensesRouter';
+import incomeRouter from './router/incomeRouter';
+import uploadRouter from './router/uploadRouter';
+import userRouter from './router/userRouter';
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -21,4 +21,4 @@ app.use(incomeRouter);
 app.use(uploadRouter);
 app.use(userRouter);
 
-module.exports = app;
+export default app;

@@ -29,7 +29,7 @@ const BankLogo = styled(ReactSVG)`
 `;
 
 const isCorrectMimeType = (file: File) => {
-  const allowedTypes = ['text/csv', 'application/vnd.ms-excel'];
+  const allowedTypes = ['application/vnd.ms-excel'];
 
   return allowedTypes.includes(file.type);
 };
@@ -66,7 +66,7 @@ const Upload: React.FC = () => {
 
   return (
     <PageContainer header="Upload">
-      <Caption>Pick up your Bank Statement CSV-file.</Caption>
+      <Caption>Pick up your Bank Statement XLS-file.</Caption>
 
       <SupportedBanks>Currently supported banks:
         <BankLogo src={SVG.monobank} />
@@ -75,7 +75,7 @@ const Upload: React.FC = () => {
       <FileInputWrapper>
         <FileInput.Dragger
           name="file"
-          accept=".csv, text/csv"
+          accept=".xls, application/vnd.ms-excel"
           customRequest={(options) => customRequest(options)}
           showUploadList={false}
         >

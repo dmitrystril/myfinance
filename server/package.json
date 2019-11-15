@@ -3,10 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "devstart": "SET DEBUG=server:* & nodemon ./bin/www"
+    "tsc": "tsc",
+    "prod": "tsc && node ./build/bin/www",
+    "dev": "ts-node-dev --respawn --transpileOnly ./bin/www.ts"
   },
   "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.2",
+    "@types/morgan": "^1.7.37",
+    "@types/multer": "^1.3.10",
+    "@types/node": "^12.12.7",
+    "@types/node-xlsx": "^0.12.1",
+    "@types/pg": "^7.11.2",
+    "@types/pg-format": "^1.0.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -20,6 +29,10 @@
     "node-xlsx": "^0.15.0",
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",
-    "pg-format": "^1.0.4"
+    "pg-format": "^1.0.4",
+    "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typeorm": "^0.2.20",
+    "typescript": "^3.7.2"
   }
 }

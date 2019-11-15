@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
 
-router.get('/api/expenses', (req, res) => {
+const router = express.Router();
+
+router.get('/api/expenses', (req: any, res: any) => {
 	res.json('API is working OK; No data for Expenses yet.');
 });
 
-module.exports = router;
+export default router;

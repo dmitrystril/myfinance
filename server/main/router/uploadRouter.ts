@@ -1,14 +1,14 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import multer from 'multer';
 
-var multer = require('multer');
-var upload = multer();
+import uploadService from '../service/uploadService';
 
-var uploadService = require('../service/uploadService.ts');
+const router = express.Router();
+const upload = multer();
 
-router.post('/api/upload', upload.single('file'), function (req, res) {
+router.post('/api/upload', upload.single('file'), function (req: any, res: any) {
 	uploadService.uploadStatementFile(req.file);
 	res.sendStatus(200);
 });
 
-module.exports = router;
+export default router;

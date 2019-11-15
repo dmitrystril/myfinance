@@ -1,10 +1,10 @@
-var format = require('pg-format');
+import format from 'pg-format';
 
-var pool = require('../db.ts');
+import pool from '../db';
 
-const dao = {
-  saveAll: function(transactionVOList) {
-    const values = transactionVOList.reduce((acc, currValue) => {
+const transactionDao = {
+  saveAll: function(transactionVOList: any) {
+    const values = transactionVOList.reduce((acc: any, currValue: any) => {
       const {
         transactionDate,
         description,
@@ -35,4 +35,4 @@ const dao = {
   },
 };
 
-module.exports = dao;
+export default transactionDao;
