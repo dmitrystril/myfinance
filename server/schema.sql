@@ -9,7 +9,7 @@ CREATE TABLE "user" (
 
 CREATE TABLE "transaction" (
   id SERIAL PRIMARY KEY,
-  transaction_date TIMESTAMP,
+  date TIMESTAMP,
   description VARCHAR(255),
   mcc INTEGER,
   amount DECIMAL(19,4),
