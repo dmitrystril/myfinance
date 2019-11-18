@@ -2,7 +2,7 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/api/user', (req: any, res: any) => {
+router.get('/api/user', (req: express.Request, res: express.Response) => {
 	res.json('API is working OK');
 });
 

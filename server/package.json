@@ -5,7 +5,7 @@
    "scripts": {
       "tsc": "tsc",
       "prod": "tsc && node ./build/bin/www",
-      "dev": "ts-node-dev --respawn --transpileOnly ./bin/www.ts"
+      "dev": "ts-node-dev --respawn --transpileOnly ./src/main/www.ts"
    },
    "dependencies": {
       "cookie-parser": "~1.4.4",

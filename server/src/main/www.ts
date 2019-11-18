@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import app from '../main/app';
+import app from './app';
 var debug = require('debug')('server:server');
 var http = require('http');
 

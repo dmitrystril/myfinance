@@ -2,13 +2,11 @@ import xlsx from 'node-xlsx';
 import moment from 'moment';
 
 import transactionDao from '../dao/transactionDao';
-import { getManager } from 'typeorm';
-import { User } from '../model/User';
 import userService from './userService';
 import { Transaction } from '../model/Transaction';
 
 const uploadService = {
-  uploadStatementFile: async function(file: any) {
+  uploadStatementFile: async function(file: Express.Multer.File) {
     const user = await userService.getUserById(1);
 
     const parsedTransactionRows = this.parseFile(file);
@@ -18,7 +16,7 @@ const uploadService = {
     transactionDao.saveAll(transactionVOList);
   },
 
-  parseFile: function(file: any) {
+  parseFile: function(file: Express.Multer.File) {
     const workSheets = xlsx.parse(file.buffer);
 	  const transactionRows = workSheets[0].data;
     transactionRows.shift(); // remove header row
