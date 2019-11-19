@@ -28,7 +28,7 @@ const uploadService = {
     return parsedTransactionRows.map((item: any) => {
       let transaction = new Transaction();
 
-      transaction.date = moment.utc(item[0], 'dd.MM.yyyy HH:mm:ss').toDate();
+      transaction.date = moment(item[0], 'DD.MM.yyyy HH:mm:ss').toDate();
       transaction.description = item[1];
       transaction.mcc = item[2];
       transaction.amount = item[3];
