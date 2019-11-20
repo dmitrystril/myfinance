@@ -1,14 +1,17 @@
 import express from 'express';
 import multer from 'multer';
 
-import uploadService from '../service/uploadService';
+import UploadService from '../service/UploadService';
 
 const router = express.Router();
 const upload = multer();
 
-router.post('/api/upload', upload.single('file'), function (req: express.Request, res: express.Response) {
-	uploadService.uploadStatementFile(req.file);
-	res.sendStatus(200);
-});
+router.post(
+	'/api/upload',
+	upload.single('file'),
+	(req: express.Request, res: express.Response) => {
+		new UploadService().addTransactionsFromFile(req.file);
+		res.sendStatus(200);
+	});
 
 export default router;

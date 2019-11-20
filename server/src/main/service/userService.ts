@@ -1,9 +1,9 @@
-import userDao from '../dao/userDao';
+import UserRepo from '../repository/UserRepo';
 
-const userService = {
-  getUserById: function(id: number) {
-    return userDao.getUserById(id);
-  },
+class UserService {
+  public getUserById(id: number) {
+    return new UserRepo().getUserById(id);
+  }
 };
 
-export default userService;
+export default UserService;

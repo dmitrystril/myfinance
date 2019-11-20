@@ -12,7 +12,7 @@ import { User } from "./User";
 export class Transaction {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id?: number;
 
     @Column()
     date: Date;

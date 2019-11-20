@@ -11,7 +11,7 @@ import { Transaction } from "./Transaction";
 export class User {
 
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   firstname: string;
