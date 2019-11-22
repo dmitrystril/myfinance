@@ -10,7 +10,7 @@ class UserMap {
       email: user.email,
       emailVerified: user.emailVerified,
       creationDate: user.creationDate,
-      transactions: user.transactions.map((item) => TransactionMap.toDto(item)),
+      transactions: user.transactions ? user.transactions.map((item) => TransactionMap.toDto(item)): [],
     }
   }
 

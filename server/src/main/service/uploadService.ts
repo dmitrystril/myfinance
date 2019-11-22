@@ -1,26 +1,21 @@
 import xlsx from 'node-xlsx';
 import moment from 'moment';
 
-import UserService from './UserService';
 import TransactionService from './TransactionService';
-import UserDto from '../dto/UserDto';
+import TransactionDto from '../dto/TransactionDto';
 
 class UploadService {
-  private userService: UserService;
   private transactionService: TransactionService;
 
   constructor() {
-    this.userService = new UserService();
     this.transactionService = new TransactionService();
   }
 
-  public async addTransactionsFromFile(file: Express.Multer.File): Promise<any> {
-    const userDto = await this.userService.getUserById(1);
-
+  public async addTransactionsFromFile(file: Express.Multer.File): Promise<TransactionDto[]> {
     const parsedTransactionRows = this.parseFile(file);
-    const transactionDtoList = this.createTransactionDtoList(parsedTransactionRows, userDto);
+    const transactionDtoList = this.createTransactionDtoList(parsedTransactionRows);
 
-    return this.transactionService.saveAll(transactionDtoList);
+    return this.transactionService.saveUniqueTransactions(transactionDtoList);
   };
 
   private parseFile(file: Express.Multer.File) {
@@ -31,7 +26,7 @@ class UploadService {
     return transactionRows;
   };
 
-  private createTransactionDtoList(parsedTransactionRows: any, userDto: UserDto) {
+  private createTransactionDtoList(parsedTransactionRows: any) {
     return parsedTransactionRows.map((item: any) => (
       {
         date: moment(item[0], 'DD.MM.yyyy HH:mm:ss').toDate(),
@@ -40,7 +35,6 @@ class UploadService {
         amount: item[3],
         currency: item[5],
         cashback: item[8],
-        user: userDto,
       }
     ));
   }

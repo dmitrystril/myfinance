@@ -9,9 +9,9 @@ const upload = multer();
 router.post(
 	'/api/upload',
 	upload.single('file'),
-	(req: express.Request, res: express.Response) => {
-		new UploadService().addTransactionsFromFile(req.file);
-		res.sendStatus(200);
+	async (req: express.Request, res: express.Response) => {
+		const addedTransactionDtoList = await new UploadService().addTransactionsFromFile(req.file);
+		res.status(200).json({ rows_affected: addedTransactionDtoList.length });
 	});
 
 export default router;

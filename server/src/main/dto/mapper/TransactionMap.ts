@@ -23,7 +23,7 @@ class TransactionMap {
       amount: transactionDto.amount,
       currency: transactionDto.currency,
       cashback: transactionDto.cashback,
-      user: UserMap.toEntity(transactionDto.user),
+      user: transactionDto.user ? UserMap.toEntity(transactionDto.user): null,
     }
   }
 };

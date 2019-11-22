@@ -3,7 +3,6 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToMany,
-  JoinColumn,
 } from "typeorm";
 import { Transaction } from "./Transaction";
 
@@ -28,6 +27,6 @@ export class User {
   @Column({ name: "creation_date" })
   creationDate: Date;
 
-  @OneToMany(type => Transaction, transaction => transaction.user, { cascade: true })
+  @OneToMany(type => Transaction, transaction => transaction.user)
   transactions: Transaction[];
 }

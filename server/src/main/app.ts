@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import { createConnection } from 'typeorm';
+import { types } from 'pg';
 import 'reflect-metadata';
 
 import indexController from './controller/indexController';
@@ -24,5 +25,10 @@ createConnection().then(async connection => {
   app.use(uploadController);
   app.use(userController);
 }).catch(error => console.log("TypeORM connection error: ", error));
+
+// this's done because pg formats decimal value to string by default ¯\_(ツ)_/¯
+types.setTypeParser(types.builtins.NUMERIC, (value: string) => {
+  return parseFloat(value);
+});
 
 export default app;
