@@ -1,9 +1,9 @@
-import express from 'express';
+import BaseController from "./BaseController";
 
-const router = express.Router();
+class IncomeController extends BaseController {
+  protected executeImpl() {
+    return this.jsonResponse(200, 'API is working OK; No data for Income yet.');
+  }
+};
 
-router.get('/api/income', (req: express.Request, res: express.Response) => {
-	res.json('API is working OK; No data for Income yet.');
-});
-
-export default router;
+export default IncomeController;

@@ -1,9 +1,9 @@
-import express from 'express';
+import BaseController from "./BaseController";
 
-const router = express.Router();
+class IndexController extends BaseController {
+  protected executeImpl() {
+    return this.jsonResponse(200, 'API is working OK.');
+  }
+};
 
-router.get('/', (req: express.Request, res: express.Response) => {
-  res.json('API is working OK');
-});
-
-export default router;
+export default IndexController;

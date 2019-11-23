@@ -4,8 +4,8 @@
    "private": true,
    "scripts": {
       "tsc": "tsc",
-      "prod": "tsc && node ./build/bin/www",
-      "dev": "ts-node-dev --respawn --transpileOnly ./src/main/www.ts"
+      "prod": "tsc && node ./build/bin/index",
+      "dev": "ts-node-dev --respawn --transpileOnly ./src/main/index.ts"
    },
    "dependencies": {
       "cookie-parser": "~1.4.4",
