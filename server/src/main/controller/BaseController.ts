@@ -19,7 +19,7 @@ abstract class BaseController {
   }
 
   protected jsonResponse(code: number, message: string) {
-    return this.response.status(code).json({ message });
+    return this.response.status(code).json(message);
   }
 
   protected ok<T>(dto?: T) {
