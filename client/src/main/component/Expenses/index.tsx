@@ -15,7 +15,7 @@ const Expenses: React.FC = () => {
 
   return (
     <PageContainer header="Expenses">
-      <p>{testData}</p>
+
     </PageContainer>
   );
 };

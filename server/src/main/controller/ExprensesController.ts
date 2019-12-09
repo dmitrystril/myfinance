@@ -1,8 +1,18 @@
 import BaseController from "./BaseController";
+import ExpensesService from "../service/ExpensesService";
 
 class ExpensesController extends BaseController {
-  protected executeImpl() {
-    return this.jsonResponse(200, 'API is working OK; No data for Expenses yet.');
+  private expensesService: ExpensesService;
+
+  constructor(expensesService: ExpensesService) {
+    super();
+
+    this.expensesService = expensesService;
+  }
+
+  protected async executeImpl() {
+    const expensesTransactionDtoList = await this.expensesService.getExpensesTransactionDtoList();
+    this.ok(expensesTransactionDtoList);
   }
 };
 
