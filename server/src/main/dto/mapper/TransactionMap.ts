@@ -11,7 +11,7 @@ class TransactionMap {
       amount: transaction.amount,
       currency: transaction.currency,
       cashback: transaction.cashback,
-      user: UserMap.toDto(transaction.user),
+      user: transaction.user ? UserMap.toDto(transaction.user): null,
     }
   }
 

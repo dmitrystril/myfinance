@@ -1,8 +1,18 @@
 import BaseController from "./BaseController";
+import IncomeService from "../service/IncomeService";
 
 class IncomeController extends BaseController {
-  protected executeImpl() {
-    return this.jsonResponse(200, 'API is working OK; No data for Income yet.');
+  private incomeService: IncomeService;
+
+  constructor(incomeService: IncomeService) {
+    super();
+
+    this.incomeService = incomeService;
+  }
+
+  protected async executeImpl() {
+    const incomeTransactionDtoList = await this.incomeService.getIncomeTransactionDtoList();
+    this.ok(incomeTransactionDtoList);
   }
 };
 

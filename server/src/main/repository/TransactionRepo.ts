@@ -11,7 +11,9 @@ class TransactionRepo implements ITransactionRepo {
   }
 
   public getTranasctionsByUserId(userId: number): Promise<Transaction[]> {
-    return this.repository.find({ relations: ['user'] });
+    return this.repository.find({
+      relations: ['user']
+    });
   }
 
   public saveAllTransactions(transactions: Transaction[]): Promise<Transaction[]> {

@@ -15,7 +15,7 @@ const Income: React.FC = () => {
 
   return (
     <PageContainer header="Income">
-      <p>{testData}</p>
+
     </PageContainer>
   );
 };

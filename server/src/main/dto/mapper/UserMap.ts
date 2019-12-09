@@ -21,7 +21,7 @@ class UserMap {
       email: userDto.email,
       emailVerified: userDto.emailVerified,
       creationDate: userDto.creationDate,
-      transactions: userDto.transactions.map((item) => TransactionMap.toEntity(item)),
+      transactions: userDto.transactions ? userDto.transactions.map((item) => TransactionMap.toEntity(item)): [],
     }
   }
 };
