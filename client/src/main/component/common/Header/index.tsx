@@ -20,7 +20,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = forwardRef((props, ref) => (
   <Root ref={ref} >
-    <div>Dmitry Stril &#x27B2; {props.currentPage}</div>
+    <div>Dmitry Stril ⇨ {props.currentPage}</div>
   </Root>
 ));
 
