@@ -23,6 +23,9 @@ export class Transaction {
     @Column()
     mcc: number;
 
+    @Column({name: "mcc_description"})
+    mccDescription: string;
+
     @Column()
     amount: number;
 

@@ -13,10 +13,18 @@ class ExpensesRepo implements IExpensesRepo {
   getExpensesTransactions(): Promise<any> {
     return this.repository.find({
       where: {
-        amount:  LessThan(0)
+        amount: LessThan(0)
       },
       relations: ['user']
     });
+
+    // return this.repository
+    //   .createQueryBuilder('transaction')
+    //   .select("transaction")
+    //   .addSelect("mcc.description", "mcc_description")
+    //   .innerJoin(Mcc, 'mcc', 'transaction.mcc = mcc.code')
+    //   .where('transaction.amount < 0')
+    //   .getRawMany();
   }
 }
 

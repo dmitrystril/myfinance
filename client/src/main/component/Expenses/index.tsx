@@ -4,10 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../redux/rootReducer';
 import { getExpensesData } from '../../redux/feature/expenses/expensesSlice';
 import PageContainer from '../common/PageContainer';
+import ExpensesTable from './ExpensesTable';
 
 const Expenses: React.FC = () => {
   const dispatch = useDispatch();
-  const testData = useSelector((state: AppState) => state.expenses.testData);
+  const expensesTransactions = useSelector((state: AppState) => state.expenses.expensesTransactions);
+  const isLoading = useSelector((state: AppState) => state.expenses.isLoading);
 
   useEffect(() => {
     dispatch(getExpensesData());
@@ -15,7 +17,10 @@ const Expenses: React.FC = () => {
 
   return (
     <PageContainer header="Expenses">
-
+      <ExpensesTable
+        transactions={expensesTransactions}
+        isLoading={isLoading}
+      />
     </PageContainer>
   );
 };

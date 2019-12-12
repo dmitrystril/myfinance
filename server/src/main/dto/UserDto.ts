@@ -1,6 +1,7 @@
 import TransactionDto from "./TransactionDto";
 
 interface UserDto {
+  id: number;
   firstname: string;
   lastname: string;
   email: string;

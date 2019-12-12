@@ -1,6 +1,6 @@
-import UserDto from "./UserDto";
+import UserType from "./UserType";
 
-interface TransactionDto {
+type TransactionType = {
   id: number;
   date: Date;
   description: string;
@@ -9,7 +9,7 @@ interface TransactionDto {
   amount: number;
   currency: string;
   cashback: number;
-  user: UserDto;
-}
+  user: UserType;
+};
 
-export default TransactionDto;
+export default TransactionType;
