@@ -2,7 +2,9 @@ import React from 'react';
 import moment from 'moment';
 import { Table } from 'antd';
 
+import columns from './columns';
 import TransactionType from '../../../type/TransactionType';
+import DATE_FORMAT from '../../../constant/DateFormat';
 
 interface ExpensesTableProps {
   transactions: TransactionType[];
@@ -15,48 +17,10 @@ const ExpensesTable: React.FC<ExpensesTableProps> = (props: ExpensesTableProps) 
     isLoading,
   } = props;
 
-  const columns = [
-    {
-      title: 'Date',
-      dataIndex: 'date',
-      key: 'date',
-      width: 200,
-    },
-    {
-      title: 'Merchant category ',
-      dataIndex: 'merchantCategory',
-      key: 'merchantCategory',
-      ellipsis: true,
-    },
-    {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
-    {
-      title: 'Amount',
-      dataIndex: 'amount',
-      key: 'amount',
-      width: 100,
-    },
-    {
-      title: 'Currency',
-      dataIndex: 'currency',
-      key: 'currency',
-      width: 100,
-    },
-    {
-      title: 'Cashback',
-      dataIndex: 'cashback',
-      key: 'cashback',
-      width: 100,
-    },
-  ];
-
   const dataSource = transactions.map(item => (
     {
       key: item.id,
-      date: moment(item.date).format('YYYY-mm-DD HH:mm:ss'),
+      date: moment(item.date).format(DATE_FORMAT.YYYY_MM_DD_HH_MM_SS),
       merchantCategory: item.mccDescription,
       description: item.description,
       amount: item.amount,
