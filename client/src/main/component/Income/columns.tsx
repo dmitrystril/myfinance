@@ -1,4 +1,11 @@
+import React from 'react';
+import styled from 'styled-components';
+
 import './column.css';
+
+const AmountColumn = styled.div`
+  color: #85bb65;
+`;
 
 const columns = [
   {
@@ -24,6 +31,7 @@ const columns = [
     key: 'amount',
     width: 100,
     className: 'column-amount',
+    render: (text: string) => <AmountColumn>{text}</AmountColumn>,
   },
   {
     title: 'Currency',
@@ -31,13 +39,6 @@ const columns = [
     key: 'currency',
     width: 100,
     className: 'column-currency',
-  },
-  {
-    title: 'Cashback',
-    dataIndex: 'cashback',
-    key: 'cashback',
-    width: 100,
-    className: 'column-cashback',
   },
 ];
 
