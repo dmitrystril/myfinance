@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import moment from 'moment';
 
 import { AppState } from '../../redux/rootReducer';
 import { getExpensesData } from '../../redux/feature/expenses/expensesSlice';
 import PageContainer from '../common/PageContainer';
-import ExpensesTable from './ExpensesTable';
+import TransactionsTable from '../common/TransactionsTable';
+import columns from './columns';
+import DATE_FORMAT from '../../../constant/DateFormat';
 
 const Expenses: React.FC = () => {
   const dispatch = useDispatch();
@@ -15,10 +18,23 @@ const Expenses: React.FC = () => {
     dispatch(getExpensesData());
   }, [dispatch]);
 
+  const dataSource = expensesTransactions.map(item => (
+    {
+      key: item.id,
+      date: moment(item.date).format(DATE_FORMAT.YYYY_MM_DD_HH_MM_SS),
+      merchantCategory: item.mccDescription,
+      description: item.description,
+      amount: item.amount,
+      currency: item.currency,
+      cashback: item.cashback,
+    }
+  ));
+
   return (
     <PageContainer header="Expenses">
-      <ExpensesTable
-        transactions={expensesTransactions}
+      <TransactionsTable
+        dataSource={dataSource}
+        columns={columns}
         isLoading={isLoading}
       />
     </PageContainer>

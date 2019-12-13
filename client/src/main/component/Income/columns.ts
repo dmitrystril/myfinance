@@ -32,13 +32,6 @@ const columns = [
     width: 100,
     className: 'column-currency',
   },
-  {
-    title: 'Cashback',
-    dataIndex: 'cashback',
-    key: 'cashback',
-    width: 100,
-    className: 'column-cashback',
-  },
 ];
 
 export default columns;

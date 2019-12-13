@@ -3,24 +3,32 @@ import { createSlice } from 'redux-starter-kit';
 import * as Endpoint from '../../middleware/api/EndpointConstants';
 import { axiosGet } from '../../middleware/api';
 import { extractActionTypes } from '../FeatureUtil';
+import TransactionType from '../../../../type/TransactionType';
 
 type IncomeState = {
-  testData: string | null;
+  incomeTransactions: TransactionType[];
+  isLoading: boolean;
 };
 
 const initialState: IncomeState = {
-  testData: null,
+  incomeTransactions: [],
+  isLoading: false,
 };
 
 const incomeSlice = createSlice({
   name: 'income',
   initialState,
   reducers: {
-    getIncomeDataRequest() {},
-    getIncomeDataSuccess(state, action) {
-      state.testData = action.payload.data;
+    getIncomeDataRequest(state) {
+      state.isLoading = true;
     },
-    getIncomeDataFailed() {},
+    getIncomeDataSuccess(state, action) {
+      state.incomeTransactions = action.payload.data;
+      state.isLoading = false;
+    },
+    getIncomesDataFailed(state) {
+      state.isLoading = false;
+    },
   }
 });
 
