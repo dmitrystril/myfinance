@@ -10,11 +10,11 @@ const CustomRangePicker = styled(RangePicker)`
   margin-block-end: 20px !important;
 `;
 
-interface DateSelectProps {
+interface DateRangeSelectProps {
   onChange: Function;
 };
 
-const DateSelect: React.FC<DateSelectProps> = (props: DateSelectProps) => {
+const DateRangeSelect: React.FC<DateRangeSelectProps> = (props: DateRangeSelectProps) => {
   const {
     onChange,
   } = props;
@@ -38,4 +38,4 @@ const DateSelect: React.FC<DateSelectProps> = (props: DateSelectProps) => {
   );
 }
 
-export default DateSelect;
+export default DateRangeSelect;

@@ -10,7 +10,7 @@ import PageContainer from '../common/PageContainer';
 import TransactionsTable from '../common/TransactionsTable';
 import columns from './columns';
 import DATE_FORMAT from '../../../constant/DateFormat';
-import DateSelect from './DateSelect';
+import DateSelect from '../common/DateRangeSelect';
 
 const Scrollable = styled.div`
   height: calc(100% - 52px);
