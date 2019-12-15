@@ -4,6 +4,8 @@ const Pages = {
   INCOME: '/income',
   EXPENSES: '/expenses',
   TAXES: '/taxes',
+  BILLS: '/bills',
+  REPORTS: '/reports',
   UPLOAD: '/upload',
   SETTINGS: '/settings',
 };

@@ -14,6 +14,8 @@ import Settings from './main/component/Settings';
 import Pages from './constant/Pages';
 import Upload from './main/component/Upload';
 import Login from './main/component/Login';
+import Bills from './main/component/Bills';
+import Reports from './main/component/Reports';
 
 const Root = styled.div`
   height: 100%;
@@ -43,6 +45,14 @@ const App: React.FC = () => (
       <Route
         path={Pages.TAXES}
         component={Taxes}
+      />
+      <Route
+        path={Pages.BILLS}
+        component={Bills}
+      />
+      <Route
+        path={Pages.REPORTS}
+        component={Reports}
       />
       <Route
         path={Pages.UPLOAD}

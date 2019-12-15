@@ -83,6 +83,18 @@ const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
             selected={location.pathname === Pages.TAXES}
             onClick={onItemClick}
           />
+          <SidebarItem
+            title="Bills"
+            link={Pages.BILLS}
+            selected={location.pathname === Pages.BILLS}
+            onClick={onItemClick}
+          />
+          <SidebarItem
+            title="Reports"
+            link={Pages.REPORTS}
+            selected={location.pathname === Pages.REPORTS}
+            onClick={onItemClick}
+          />
         </TopItemWrapper>
 
         <BottomItemWrapper>
