@@ -13,9 +13,9 @@ const Root = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: #2f4f4f;
   padding-top: 50px;
-  box-shadow: 1px 0 2px 2px #EDEDED;
+  box-shadow: 1px 0 1px 1px #778899;
   z-index: 1;
 `;
 

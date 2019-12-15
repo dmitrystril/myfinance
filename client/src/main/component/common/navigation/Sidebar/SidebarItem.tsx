@@ -16,14 +16,14 @@ const Root = styled.div<{ selected: boolean }>`
   margin-bottom: 8px;
   border-radius: 3px;
   user-select: none;
-  background-color: ${({selected}) => (selected ? '#40a9ff' : '#FFFFFF')};
-  box-shadow: 1px 1px 1px lightgray;
+  background-color: ${({selected}) => (selected ? '#121E39' : '#8994AC')};
+  /* box-shadow: 1px 1px 1px lightgray; */
   cursor: pointer;
   ${({ selected }) => !selected && css`
     &:hover {
-      box-shadow:  1px 0px 0px 0px #40a9ff;
+      box-shadow:  1px 0px 1px 0px #DCDCDC;
       ${Title} {
-        color: #40a9ff;
+        color: #FFFFFF;
       }
     }
   `};
