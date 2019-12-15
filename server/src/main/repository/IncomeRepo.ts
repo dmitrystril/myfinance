@@ -11,12 +11,12 @@ class IncomeRepo implements IIncomeRepo {
   }
 
   getIncomeTransactions(): Promise<any> {
-    return this.repository.find({
-      where: {
-        amount:  MoreThan(0)
-      },
-      relations: ['user']
-    });
+    return this.repository
+      .createQueryBuilder('transaction')
+      .where('transaction.amount > 0')
+      .orderBy("transaction.date", "DESC")
+      .getMany();
+
   }
 }
 

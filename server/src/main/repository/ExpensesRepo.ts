@@ -11,12 +11,11 @@ class ExpensesRepo implements IExpensesRepo {
   }
 
   getExpensesTransactions(): Promise<any> {
-    return this.repository.find({
-      where: {
-        amount: LessThan(0)
-      },
-      relations: ['user']
-    });
+    return this.repository
+      .createQueryBuilder('transaction')
+      .where('transaction.amount < 0')
+      .orderBy("transaction.date", "DESC")
+      .getMany();
 
     // return this.repository
     //   .createQueryBuilder('transaction')

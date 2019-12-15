@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
 import styled from 'styled-components';
@@ -11,6 +11,8 @@ import TransactionsTable from '../common/TransactionsTable';
 import columns from './columns';
 import DATE_FORMAT from '../../../constant/DateFormat';
 import DateSelect from '../common/DateRangeSelect';
+import getTransactionDataSource from '../transactionDataSource';
+import TransactionType from '../../../type/TransactionType';
 
 const Scrollable = styled.div`
   height: calc(100% - 52px);
@@ -38,24 +40,10 @@ const Expenses: React.FC = () => {
     dispatch(getExpensesData());
   }, [dispatch]);
 
-  useEffect(() => {
-    refreshDataSource();
-  }, [expensesTransactions]);
-
-  const refreshDataSource = (dateFrom?: Date, dateTo?: Date) => {
-    let transactions = expensesTransactions;
-
-    if (dateFrom && dateTo) {
-      const dateFromMs = dateFrom.getTime();
-      const dateToMs = dateTo.getTime();
-      transactions = transactions.filter((item) => {
-        const itemMs = moment(item.date).toDate().getTime();
-        return itemMs > dateFromMs && itemMs < dateToMs;
-      })
-    }
-
-    setDataSource(
-      transactions.map(item => (
+  const refreshDataSource = useCallback((dateFrom?: Date, dateTo?: Date) => {
+    const transactions = getTransactionDataSource(
+      expensesTransactions,
+      (item: TransactionType) => (
         {
           key: item.id,
           date: moment(item.date).format(DATE_FORMAT.YYYY_MM_DD_HH_MM_SS),
@@ -65,9 +53,17 @@ const Expenses: React.FC = () => {
           currency: item.currency,
           cashback: item.cashback,
         }
-      ))
+      ),
+      dateFrom,
+      dateTo,
     );
-  }
+
+    setDataSource(transactions);
+  }, [expensesTransactions]);
+
+  useEffect(() => {
+    refreshDataSource();
+  }, [expensesTransactions, refreshDataSource]);
 
   const handleDateChange = (dates: RangePickerValue, dateStrings: [string, string]) => {
     if (dates[0] && dates[1]) {
