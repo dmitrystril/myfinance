@@ -5,39 +5,39 @@ import { axiosGet } from '../../middleware/api';
 import { extractActionTypes } from '../FeatureUtil';
 import TransactionType from '../../../../type/TransactionType';
 
-type TaxesState = {
-  taxesTransactions: TransactionType[];
+type BillsState = {
+  billsTransactions: TransactionType[];
   isLoading: boolean;
 };
 
-const initialState: TaxesState = {
-  taxesTransactions: [],
+const initialState: BillsState = {
+  billsTransactions: [],
   isLoading: false,
 };
 
-const taxesSlice = createSlice({
-  name: 'taxes',
+const billsSlice = createSlice({
+  name: 'bills',
   initialState,
   reducers: {
-    getTaxesDataRequest(state) {
+    getBillsDataRequest(state) {
       state.isLoading = true;
     },
-    geTaxesDataSuccess(state, action) {
-      state.taxesTransactions = action.payload.data;
+    geBillsDataSuccess(state, action) {
+      state.billsTransactions = action.payload.data;
       state.isLoading = false;
     },
-    getTaxesDataFailed(state) {
+    getBillsDataFailed(state) {
       state.isLoading = false;
     }
   }
 });
 
-export default taxesSlice.reducer;
+export default billsSlice.reducer;
 
-export const getTaxesData = () => {
-  const PATH = `${Endpoint.TAXES}`;
+export const getBillsData = () => {
+  const PATH = `${Endpoint.BILLS}`;
 
-  const TYPES = extractActionTypes(taxesSlice.actions);
+  const TYPES = extractActionTypes(billsSlice.actions);
 
   return axiosGet(PATH, TYPES);
 };

@@ -5,7 +5,7 @@ import { Dropdown, Menu, Icon } from 'antd';
 
 import DATE_FORMAT from '../../../constant/DateFormat';
 import CategoryEnum from '../common/CategoryEnum';
-import './column.css';
+import '../common/TransactionsTable/column.css';
 
 const AmountColumn = styled.div`
   color: #C21807;

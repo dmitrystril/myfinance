@@ -8,6 +8,8 @@ import indexRouter from './router/indexRouter';
 import expensesRouter from './router/expensesRouter';
 import incomeRouter from './router/incomeRouter';
 import uploadRouter from './router/uploadRouter';
+import taxesRouter from './router/taxesRouter';
+import billsRouter from './router/billsRouter';
 
 const app = express();
 
@@ -20,6 +22,8 @@ app.use(indexRouter);
 app.use(expensesRouter);
 app.use(incomeRouter);
 app.use(uploadRouter);
+app.use(taxesRouter);
+app.use(billsRouter);
 
 // this's done because pg formats decimal value to string by default ¯\_(ツ)_/¯
 types.setTypeParser(types.builtins.NUMERIC, (value: string) => {

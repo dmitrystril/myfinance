@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import './column.css';
+import '../common/TransactionsTable/column.css';
 
 const AmountColumn = styled.div`
   color: #85bb65;
@@ -30,7 +30,7 @@ const columns = [
     dataIndex: 'amount',
     key: 'amount',
     width: 100,
-    className: 'column-amount',
+    className: 'default-column',
     render: (text: string) => <AmountColumn>{text}</AmountColumn>,
   },
   {
@@ -38,7 +38,7 @@ const columns = [
     dataIndex: 'currency',
     key: 'currency',
     width: 100,
-    className: 'column-currency',
+    className: 'default-column',
   },
 ];
 
