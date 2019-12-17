@@ -13,6 +13,11 @@ class ExpensesService {
     const expensesTransactionList = await this.expensesRepo.getExpensesTransactions();
     return expensesTransactionList.map((expensesTransaction) => TransactionMap.toDto(expensesTransaction));
   }
+
+  public async setTransactionCategory(transactionId: number, category: number): Promise<TransactionDto> {
+    const expensesTransaction = await this.expensesRepo.setTransactionCategory(transactionId, category);
+    return TransactionMap.toDto(expensesTransaction);
+  }
 };
 
 export default ExpensesService;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
+import ExpandedRow from './ExpandedRow';
 
 interface TransactionsTableProps {
   columns: any;
@@ -14,6 +15,10 @@ const TransactionsTable: React.FC<TransactionsTableProps> = (props: Transactions
     isLoading,
   } = props;
 
+  const expandedRowRenderer = (record: any) => (
+    <ExpandedRow record={record} />
+  );
+
   return (
     <Table
       columns={columns}
@@ -21,6 +26,7 @@ const TransactionsTable: React.FC<TransactionsTableProps> = (props: Transactions
       loading={isLoading}
       size="small"
       pagination={false}
+      expandedRowRender={expandedRowRenderer}
     ></Table>
   );
 };

@@ -1,8 +1,5 @@
-th.column-amount,
-td.column-amount,
-th.column-cashback,
-td.column-cashback,
-th.column-currency,
-td.column-currency {
+th.default-column,
+td.default-column
+{
   text-align: right !important;
 }

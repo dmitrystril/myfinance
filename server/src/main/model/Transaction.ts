@@ -35,6 +35,9 @@ export class Transaction {
     @Column()
     cashback: number;
 
+    @Column()
+    category: number;
+
     @ManyToOne(type => User, user => user.transactions)
     @JoinColumn({ name: "user_id" })
     user: User;

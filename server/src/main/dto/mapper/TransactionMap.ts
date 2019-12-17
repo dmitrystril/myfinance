@@ -13,6 +13,7 @@ class TransactionMap {
       amount: transaction.amount,
       currency: transaction.currency,
       cashback: transaction.cashback,
+      category: transaction.category,
       user: transaction.user ? UserMap.toDto(transaction.user): null,
     }
   }
@@ -26,6 +27,7 @@ class TransactionMap {
       amount: transactionDto.amount,
       currency: transactionDto.currency,
       cashback: transactionDto.cashback,
+      category: transactionDto.category,
       user: transactionDto.user ? UserMap.toEntity(transactionDto.user): null,
     }
   }

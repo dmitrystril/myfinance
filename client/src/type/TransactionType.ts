@@ -9,6 +9,7 @@ type TransactionType = {
   amount: number;
   currency: string;
   cashback: number;
+  category: number;
   user: UserType;
 };
 

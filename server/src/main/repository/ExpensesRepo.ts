@@ -25,6 +25,13 @@ class ExpensesRepo implements IExpensesRepo {
     //   .where('transaction.amount < 0')
     //   .getRawMany();
   }
+
+  async setTransactionCategory(transactionId: number, category: number): Promise<any> {
+    let transaction = await this.repository.findOne(transactionId);
+    transaction.category = category;
+
+    return this.repository.save(transaction);
+  }
 }
 
 export default ExpensesRepo;

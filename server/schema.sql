@@ -16,6 +16,7 @@ CREATE TABLE "transaction" (
   amount DECIMAL(19,4),
   currency CHAR(3),
   cashback DECIMAL(19,4),
+  category INT,
   user_id INT REFERENCES "user"(id)
 );
 

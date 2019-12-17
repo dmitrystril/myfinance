@@ -9,6 +9,7 @@ interface TransactionDto {
   amount: number;
   currency: string;
   cashback: number;
+  category: number;
   user: UserDto;
 }
 

@@ -1,17 +1,17 @@
-import express from 'express'
+import express from 'express';
 
 abstract class BaseController {
   protected request: express.Request;
   protected response: express.Response;
 
-  protected abstract executeImpl();
+  protected abstract executeImpl(request: express.Request, response: express.Response);
 
   public async execute(request: express.Request, response: express.Response): Promise<void | any> {
     this.request = request;
     this.response = response;
 
     try {
-      await this.executeImpl();
+      await this.executeImpl(request, response);
     } catch (error) {
       console.log(`[BaseController]: Error caught by controller`);
       console.log(error);

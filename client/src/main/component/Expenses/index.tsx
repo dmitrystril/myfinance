@@ -1,19 +1,18 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import moment from 'moment';
 import styled from 'styled-components';
 import { RangePickerValue } from 'antd/lib/date-picker/interface';
 import { Statistic } from 'antd';
 
 import { AppState } from '../../redux/rootReducer';
-import { getExpensesData } from '../../redux/feature/expenses/expensesSlice';
+import { getExpensesData, setCategory } from '../../redux/feature/expenses/expensesSlice';
 import PageContainer from '../common/PageContainer';
 import TransactionsTable from '../common/TransactionsTable';
-import columns from './columns';
-import DATE_FORMAT from '../../../constant/DateFormat';
+import { getColumns } from './columns';
 import DateSelect from '../common/DateRangeSelect';
 import TransactionType from '../../../type/TransactionType';
 import { getFilteredTransactions, getTotalAmount, getTotalCashback } from '../transactionUtil';
+import CategoryEnum from '../common/CategoryEnum';
 
 const TopPane = styled.div`
   display: flex;
@@ -36,7 +35,7 @@ const Scrollable = styled.div`
 
 interface IDataSourceItem {
   key: number;
-  date: string;
+  date: Date;
   merchantCategory: string;
   description: string;
   amount: number;
@@ -61,12 +60,13 @@ const Expenses: React.FC = () => {
     const transactionDataSource = transactions.map(item => (
       {
         key: item.id,
-        date: moment(item.date).format(DATE_FORMAT.YYYY_MM_DD_HH_MM_SS),
+        date: item.date,
         merchantCategory: item.mccDescription,
         description: item.description,
         amount: item.amount,
         currency: item.currency,
         cashback: item.cashback,
+        category: item.category,
       }
     ));
 
@@ -90,6 +90,10 @@ const Expenses: React.FC = () => {
       refreshDataSource(filteredTransactions);
       refreshStatistics(filteredTransactions);
     }
+  }
+
+  const handleMarkAs = (transactionId: number, category: CategoryEnum) => {
+    dispatch(setCategory(transactionId, category));
   }
 
   return (
@@ -116,7 +120,7 @@ const Expenses: React.FC = () => {
       <Scrollable>
         <TransactionsTable
           dataSource={dataSource}
-          columns={columns}
+          columns={getColumns(handleMarkAs)}
           isLoading={isLoading}
         />
       </Scrollable>
