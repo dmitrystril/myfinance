@@ -16,8 +16,14 @@ const Root = styled.div<{ selected: boolean }>`
   margin-bottom: 8px;
   border-radius: 3px;
   user-select: none;
-  background-color: ${({selected}) => (selected ? '#121E39' : '#8994AC')};
-  /* box-shadow: 1px 1px 1px lightgray; */
+  background-color: '#2f4f4f';
+  font-weight: 300;
+  color: #FFFFFF;
+  ${({ selected }) => selected && css`
+    box-shadow:  1px 0px 1px 0px #DCDCDC;
+    font-weight: 600;
+  `};
+
   cursor: pointer;
   ${({ selected }) => !selected && css`
     &:hover {
