@@ -10,7 +10,7 @@ class TaxesService {
   }
 
   public async getTaxesTransactionDtoList(): Promise<TransactionDto[]> {
-    const taxesTransactionList = await this.taxesRepo.getTaxesTransactions();
+    const taxesTransactionList = await this.taxesRepo.getTaxesTransactionDtoList();
     return taxesTransactionList.map(taxesTransaction => TransactionMap.toDto(taxesTransaction));
   }
 };

@@ -10,7 +10,7 @@ class BillsService {
   }
 
   public async getBillsTransactionDtoList(): Promise<TransactionDto[]> {
-    const billsTransactionList = await this.billsRepo.getBillsTransactions();
+    const billsTransactionList = await this.billsRepo.getBillsTransactionDtoList();
     return billsTransactionList.map(billsTransaction => TransactionMap.toDto(billsTransaction));
   }
 };

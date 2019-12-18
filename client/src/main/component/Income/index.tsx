@@ -9,7 +9,7 @@ import { AppState } from '../../redux/rootReducer';
 import { getIncomeData } from '../../redux/feature/income/incomeSlice';
 import PageContainer from '../common/PageContainer';
 import TransactionsTable from '../common/TransactionsTable';
-import columns from './columns';
+import columns from '../common/TransactionsTable/columns';
 import DATE_FORMAT from '../../../constant/DateFormat';
 import DateSelect from '../common/DateRangeSelect';
 import TransactionType from '../../../type/TransactionType';

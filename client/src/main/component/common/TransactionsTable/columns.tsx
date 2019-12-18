@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import '../common/TransactionsTable/column.css';
+import './column.css';
 
 const AmountColumn = styled.div`
   color: #85bb65;
