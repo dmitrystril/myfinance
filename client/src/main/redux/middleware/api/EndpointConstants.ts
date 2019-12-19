@@ -5,3 +5,4 @@ export const UPLOAD = '/api/upload/';
 
 export const TAXES = '/api/taxes/';
 export const BILLS = '/api/bills/';
+export const REPORT = '/api/report/';
