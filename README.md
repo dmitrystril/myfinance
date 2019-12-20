@@ -15,3 +15,7 @@ This is my pet project I'm working on to improve my skills on the following tech
 - styled-components
 - Express
 - PostgreSQL
+
+## Screenshots
+![alt expenses](https://github.com/dmitrystril/myfinance/blob/develop/screenshots/expenses.jpg)
+![alt upload](https://github.com/dmitrystril/myfinance/blob/develop/screenshots/upload.jpg)
