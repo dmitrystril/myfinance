@@ -19,3 +19,16 @@ This is my pet project I'm working on to improve my skills on the following tech
 ## Screenshots
 ![alt expenses](https://github.com/dmitrystril/myfinance/blob/develop/screenshots/expenses.jpg)
 ![alt upload](https://github.com/dmitrystril/myfinance/blob/develop/screenshots/upload.jpg)
+
+## TODO
+- Authentication
+- Header
+- Dashboard
+- Reports
+   - 2 stacked bar chart showing expenses/income per month
+   - Pie chart showing 10 biggest expenses grouped by MCC
+   - Pie chart showing 10 biggest cashbacks grouped by MCC
+- Settings
+- Make app more responsible
+- i18n
+- Theming
